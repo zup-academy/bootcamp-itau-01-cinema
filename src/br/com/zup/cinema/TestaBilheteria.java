@@ -3,7 +3,7 @@ package br.com.zup.cinema;
 import java.util.Calendar;
 import java.util.Date;
 
-public class TestaIngresso {
+public class TestaBilheteria {
 	
 	public static void main(String[] args) {
 		
@@ -17,9 +17,18 @@ public class TestaIngresso {
 		
 		Date as5Horas = calendario.getTime();
 		
-//		Ingresso ingressoMatrix = new Ingresso(1L, 10.0, as5Horas, "H9", 2, hoje, matrix, rafael);
-	
-//		System.out.println(ingressoMatrix);
+		Bilheteria bilheteria = new Bilheteria();
+		
+		Sala sala = new Sala("A1");
+		Sessao sessao = new Sessao(sala, as5Horas, matrix);
+		double valor = 25.0;
+		
+		Ingresso ingressoComprado = bilheteria.compraIngresso(sessao, valor);
+		
+		System.out.println(ingressoComprado);
+		
+		Ingresso ingressoComprado2 = bilheteria.compraIngresso(sessao, valor, rafael);
+		System.out.println(ingressoComprado2);
 	}
 
 }
